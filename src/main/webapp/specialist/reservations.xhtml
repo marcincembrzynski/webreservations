@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/templates/template.xhtml">
+
+            <ui:define name="title">Specialist Reservations</ui:define>
+
+            <ui:define name="content">
+                <h1>Specialist Reservations</h1>
+                <h2>#{specialistsController.specialist.firstName}, #{specialistsController.specialist.lastName}</h2>
+                <ul>
+                    <ui:repeat value="#{specialistsController.specialist.reservations}" var="r">
+                        <li>#{r.customer.firstName} #{r.customer.lastName}</li>
+                    </ui:repeat>
+                </ul>
+
+                <ul>
+                    <li>add availability</li>
+                    <li>view reservations</li>
+                    <li>remove availability</li>
+
+                </ul>
+
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

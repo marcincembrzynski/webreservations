@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="reservations"></cc:attribute>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        
+        <h:dataTable value="#{cc.attrs.reservations}" var="r" rendered="#{cc.attrs.reservations.size() > 0}">
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        #{r.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Price</f:facet>
+                        #{r.price}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Created</f:facet>
+                        #{r.created}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Appointment Time</f:facet>
+                        #{r.appointmentTime}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Service</f:facet>
+                        #{r.service.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Duration</f:facet>
+                        #{r.service.duration}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Specialist</f:facet>
+                        #{r.specialist.firstName} #{r.specialist.lastName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Paid</f:facet>
+                        #{r.reservationPayment.successful}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Payment Id</f:facet>
+                        #{r.reservationPayment.paymentId}
+                    </h:column>
+                    
+                </h:dataTable>
+               
+    </cc:implementation>
+</html>

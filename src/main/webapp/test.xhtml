@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"  
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/template.xhtml">
+            <ui:define name="title">Register</ui:define>
+
+            <ui:define name="content">
+                <h1>Test</h1>
+
+                <h:form>
+                    <label>From</label>
+                 
+                    <p:calendar id="datetime1" value="#{specialistsController.availablity.fromTime}" pattern="MM/dd/yyyy HH:mm" />
+                    <p:calendar id="datetime2" value="#{specialistsController.availablity.toTime}" pattern="MM/dd/yyyy HH:mm" />
+                    <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+                      
+                    </p:dialog>
+
+                    <label>To:</label>
+                    
+                    <h:commandButton action="#{specialistsController.addAvailability()}" value="Add Availability" />
+                </h:form>
+
+            </ui:define>
+
+
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/template.xhtml">
+            <ui:define name="title">Payment</ui:define>
+            <ui:define name="content">
+                
+                <div class="payment-overlay">
+                    <p>Processing payment...</p>
+         
+                </div> 
+                <h1>Payment</h1>
+               
+                <table>
+                    <tr><td>Service</td><td>#{customerController.availabilityTime.service.name}</td></tr>
+                    <tr><td>Specialist</td><td>#{customerController.availabilityTime.specialist.firstName} #{customerController.availabilityTime.specialist.lastName}</td></tr>
+                    <tr><td>Time</td><td> #{customerController.availabilityTime.localDateTime}</td></tr>
+                    <tr><td>Price</td><td> #{customerController.availabilityTime.service.price}</td></tr>
+                </table>
+                <h:form>
+                    <p><h:commandButton value="Pay" action="#{reservationsController.payWithPaypal()}" p:data-show-payment-overlay="" /></p>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
